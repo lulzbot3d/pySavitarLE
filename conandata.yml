@@ -1,0 +1,8 @@
+"None":
+  requirements:
+    - "savitar/5.1.0"
+    - "cpython/3.10.4"
+"5.1.0":
+  requirements:
+    - "savitar/5.1.0"
+    - "cpython/3.10.4"
