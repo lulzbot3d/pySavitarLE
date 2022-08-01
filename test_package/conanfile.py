@@ -17,8 +17,8 @@ class PySavitarTestConan(ConanFile):
         venv.generate()
 
     def build(self):
-        # if self.settings.os == "Windows" and not tools.cross_building(self, skip_x64_x86=True):
-        shutil.copy(Path(self.source_folder).joinpath("test.py"), Path(self.build_folder).joinpath("test.py"))
+        if not tools.cross_building(self):
+            shutil.copy(Path(self.source_folder).joinpath("test.py"), Path(self.build_folder).joinpath("test.py"))
 
     def imports(self):
         if self.settings.os == "Windows" and not tools.cross_building(self, skip_x64_x86=True):
