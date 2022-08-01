@@ -60,7 +60,7 @@ class PySavitarConan(ConanFile):
 
         sip = self.python_requires["sipbuildtool"].module.SipBuildTool(self)
         sip.configure()
-        sip.generate("pysavitar", sip_dir = "src")
+        sip.generate("pySavitar", sip_dir = "src")
 
         tc = CMakeToolchain(self)
 
@@ -93,7 +93,7 @@ class PySavitarConan(ConanFile):
         self.folders.generators = os.path.join(self.folders.build, "conan")
 
         self.cpp.build.bindirs = ["."]
-        self.cpp.build.libdirs = [".", os.path.join("pysavitar", "pysavitar")]
+        self.cpp.build.libdirs = [".", os.path.join("pySavitar", "pySavitar")]
 
         self.cpp.package.libdirs = ["site-packages"]
 

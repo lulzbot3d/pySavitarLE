@@ -5,6 +5,6 @@ if system() == "Windows":
     from pathlib import Path
     add_dll_directory(str(Path(__file__).parent))
 
-import pysavitar
+import pySavitar
 
-print("SIP_VERSION" in dir(pysavitar))
+print("SIP_VERSION" in dir(pySavitar))

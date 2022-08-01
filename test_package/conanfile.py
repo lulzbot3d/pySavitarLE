@@ -30,9 +30,10 @@ class PySavitarTestConan(ConanFile):
             test_pysavitar = StringIO()
 
             try:
-                self.run(f"python test.py", env="conanrun", output=test_pysavitar)
+                self.run("python test.py", env="conanrun", output=test_pysavitar)
             except Exception:
                 print("Test Failed to run: ", test_pysavitar.getvalue())
+                raise ConanException("pySavitar wasn't built correctly")
 
-            if "True" not in test_pysavitar.get_value():
+            if "True" not in test_pysavitar.getvalue():
                 raise ConanException("pySavitar wasn't built correctly")
