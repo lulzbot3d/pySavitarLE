@@ -11,8 +11,8 @@ class PySavitarConan(ConanFile):
     name = "pysavitar"
     license = "LGPL-3.0"
     author = "Ultimaker B.V."
-    url = "https://github.com/Ultimaker/libSavitar"
-    description = "libSavitar is a c++ implementation of 3mf loading with SIP python bindings"
+    url = "https://github.com/Ultimaker/pySavitar"
+    description = "pySavitar is a c++ implementation of 3mf loading with SIP python bindings"
     topics = ("conan", "cura", "3mf", "c++")
     settings = "os", "compiler", "build_type", "arch"
     revision_mode = "scm"
@@ -107,4 +107,4 @@ class PySavitarConan(ConanFile):
             self.runenv_info.append_path("PYTHONPATH", os.path.join(self.package_folder, "site-packages"))
         else:
             self.runenv_info.append_path("PYTHONPATH", self.build_folder)
-            self.runenv_info.append_path("PYTHONPATH", os.path.join(self.build_folder, "pyArcus", "pyArcus"))
+            self.runenv_info.append_path("PYTHONPATH", os.path.join(self.build_folder, "pySavitar", "pySavitar"))
