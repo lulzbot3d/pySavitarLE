@@ -36,3 +36,6 @@ CMakeUserPresets.json
 /graph_info.json
 /conan.lock
 /conaninfo.txt
+
+build/
+test_package/build/

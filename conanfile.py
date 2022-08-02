@@ -4,7 +4,6 @@ from conan.tools.cmake import CMakeToolchain, CMakeDeps, CMake, cmake_layout
 from conan.tools import files
 from conan import ConanFile
 from conans import tools
-from conans.errors import ConanException
 
 required_conan_version = ">=1.46.2"
 
@@ -49,14 +48,13 @@ class PySavitarConan(ConanFile):
         self.options["savitar"].shared = self.options.shared
         self.options["cpython"].shared = True
 
-
     def validate(self):
         if self.settings.compiler.get_safe("cppstd"):
             tools.check_min_cppstd(self, 17)
 
     def generate(self):
-        cmake = CMakeDeps(self)
-        cmake.generate()
+        deps = CMakeDeps(self)
+        deps.generate()
 
         tc = CMakeToolchain(self)
 
@@ -90,7 +88,7 @@ class PySavitarConan(ConanFile):
         self.cpp.package.libdirs = ["site-packages"]
 
         if self.settings.os in ["Linux", "FreeBSD", "Macos"]:
-            self.cpp.package.components["pysavitar"].system_libs = ["pthread"]
+            self.cpp.package.system_libs = ["pthread"]
 
     def build(self):
         cmake = CMake(self)

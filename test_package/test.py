@@ -8,8 +8,3 @@ if system() == "Windows":
 import pySavitar
 
 print("SIP_VERSION" in dir(pySavitar))
-
-
-from pySavitar import MeshData
-
-meshdata = MeshData()

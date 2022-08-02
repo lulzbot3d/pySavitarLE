@@ -21,12 +21,12 @@ class PySavitarTestConan(ConanFile):
             shutil.copy(Path(self.source_folder).joinpath("test.py"), Path(self.build_folder).joinpath("test.py"))
 
     def imports(self):
-        if self.settings.os == "Windows" and not tools.cross_building(self, skip_x64_x86=True):
+        if self.settings.os == "Windows" and not tools.cross_building(self):
             self.copy("*.dll", dst=".", src="@bindirs")
             self.copy("*.pyd", dst=".", src="@libdirs")
 
     def test(self):
-        if not tools.cross_building(self, skip_x64_x86=True):
+        if not tools.cross_building(self):
             test_pysavitar = StringIO()
 
             try:

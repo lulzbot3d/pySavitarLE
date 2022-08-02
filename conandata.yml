@@ -1,8 +1,8 @@
 "None":
   requirements:
-    - "savitar/5.1.0"
+    - "savitar/(latest)@ultimaker/testing"
     - "cpython/3.10.4"
-"5.1.0":
+"5.2.0-beta":
   requirements:
-    - "savitar/5.1.0"
+    - "savitar/(latest)@ultimaker/testing"
     - "cpython/3.10.4"
