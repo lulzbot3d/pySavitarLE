@@ -1,0 +1,8 @@
+"None":
+  requirements:
+    - "savitar/(latest)@ultimaker/testing"
+    - "cpython/3.10.4"
+"5.2.0-beta":
+  requirements:
+    - "savitar/(latest)@ultimaker/testing"
+    - "cpython/3.10.4"
