@@ -39,3 +39,6 @@ CMakeUserPresets.json
 
 build/
 test_package/build/
+
+*.bak
+*~
