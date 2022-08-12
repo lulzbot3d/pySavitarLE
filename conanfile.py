@@ -18,7 +18,7 @@ class PySavitarConan(ConanFile):
     revision_mode = "scm"
     exports = "LICENSE*"
 
-    python_requires = "umbase/0.1.5@ultimaker/testing", "sipbuildtool/0.1@ultimaker/testing"
+    python_requires = "umbase/0.1.5@ultimaker/testing", "sipbuildtool/0.1.99@ultimaker/testing"
     python_requires_extend = "umbase.UMBaseConanfile"
 
     options = {
