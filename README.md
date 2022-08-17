@@ -36,6 +36,7 @@ http://www.gnu.org/licenses/lgpl.html
 - VS2022 or higher
 - CMake 3.23 or higher
 - nmake
+- sip 6.5.0 or higher
 
 ### MacOs
 - Python 3.6 or higher
@@ -43,6 +44,7 @@ http://www.gnu.org/licenses/lgpl.html
 - apply clang 11 or higher
 - CMake 3.23 or higher
 - make
+- sip 6.5.0 or higher
 
 ### Linux
 - Python 3.6 or higher
@@ -50,6 +52,7 @@ http://www.gnu.org/licenses/lgpl.html
 - gcc 12 or higher
 - CMake 3.23 or higher
 - make
+- sip 6.5.0 or higher
 
 ## How To Build
 
@@ -112,6 +115,7 @@ conan create . pysavitar/<version>@<username>/<channel> --build=missing --update
 
 This package will be stored in the local Conan cache (`~/.conan/data` or `C:\Users\username\.conan\data` ) and can be used in downstream
 projects, such as Cura and Uranium by adding it as a requirement in the `conanfile.py` or in `conandata.yml`.
+
 Note: Make sure that the used `<version>` is present in the conandata.yml in the pySavitar root
 
 You can also specify the override at the commandline, to use the newly created package, when you execute the `conan install`
