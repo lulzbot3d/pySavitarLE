@@ -26,7 +26,7 @@ pySavitar is released under terms of the LGPLv3 License. Terms of the license ca
 http://www.gnu.org/licenses/lgpl.html
 
 > But in general it boils down to:  
-> **You need to share the source of any pySavitar modifications if you make an application with Savitar.**
+> **You need to share the source of any pySavitar modifications if you make an application with pySavitar.**
 
 ## System Requirements
 
@@ -71,7 +71,9 @@ conan config install https://github.com/ultimaker/conan-config.git
 conan profile new default --detect --force
 ```
 
-Community developers would have to remove the Conan cura repository because it requires credentials.
+Community developers would have to remove the Conan cura repository because it requires credentials, 
+
+Ultimaker developers need to request an account for our JFrog Artifactory server at IT
 ```bash
 conan remote remove cura
 ```
@@ -87,6 +89,7 @@ cd pySavitar
 #### Release
 ```bash
 conan install . --build=missing --update
+# optional for a specific version: conan install . pysavitar/<version>@<user>/<channel> --build=missing --update
 cmake --preset release
 cmake --build --preset release
 ```
@@ -109,6 +112,7 @@ conan create . pysavitar/<version>@<username>/<channel> --build=missing --update
 
 This package will be stored in the local Conan cache (`~/.conan/data` or `C:\Users\username\.conan\data` ) and can be used in downstream
 projects, such as Cura and Uranium by adding it as a requirement in the `conanfile.py` or in `conandata.yml`.
+Note: Make sure that the used `<version>` is present in the conandata.yml in the pySavitar root
 
 You can also specify the override at the commandline, to use the newly created package, when you execute the `conan install`
 command in the root of the consuming project, with:
