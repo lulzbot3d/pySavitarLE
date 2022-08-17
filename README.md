@@ -33,7 +33,7 @@ http://www.gnu.org/licenses/lgpl.html
 ### Windows
 - Python 3.6 or higher
 - Ninja 1.10 or higher
-- VS2019 or higher
+- VS2022 or higher
 - CMake 3.23 or higher
 - nmake
 
@@ -47,7 +47,7 @@ http://www.gnu.org/licenses/lgpl.html
 ### Linux
 - Python 3.6 or higher
 - Ninja 1.10 or higher
-- gcc 9 or higher
+- gcc 12 or higher
 - CMake 3.23 or higher
 - make
 
