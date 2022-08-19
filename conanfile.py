@@ -21,7 +21,7 @@ class PySavitarConan(ConanFile):
     revision_mode = "scm"
     exports = "LICENSE*"
 
-    python_requires = "umbase/0.1.5@ultimaker/testing", "pyprojecttoolchain/0.1.1@ultimaker/testing", "sipbuildtool/0.2.0@ultimaker/testing"
+    python_requires = "umbase/0.1.5@ultimaker/testing", "pyprojecttoolchain/0.1.3@ultimaker/testing", "sipbuildtool/0.2.0@ultimaker/testing"
     python_requires_extend = "umbase.UMBaseConanfile"
 
     options = {
@@ -62,6 +62,8 @@ class PySavitarConan(ConanFile):
     def generate(self):
         pp = self.python_requires["pyprojecttoolchain"].module.PyProjectToolchain(self)
         pp.blocks["tool_sip_project"].values["sip_files_dir"] = Path("python").as_posix()
+        pp.blocks["tool_sip_bindings"].values["name"] = "pySavitar"
+        pp.blocks["tool_sip_metadata"].values["name"] = "pySavitar"
         pp.blocks.remove("extra_sources")
         pp.generate()
 
