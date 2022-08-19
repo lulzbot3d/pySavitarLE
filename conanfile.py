@@ -8,7 +8,7 @@ from conan import ConanFile
 from conan.tools.layout import basic_layout
 from conans import tools
 
-required_conan_version = ">=1.46.2"
+required_conan_version = ">=1.48.0"
 
 class PySavitarConan(ConanFile):
     name = "pysavitar"
