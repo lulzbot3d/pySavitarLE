@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.20)
 find_package(cpython REQUIRED)
 find_package(savitar REQUIRED)
 
-find_package(umbase REQUIRED)
+find_package(standardprojectsettings REQUIRED)
 find_package(sipbuildtool REQUIRED)
 
 add_library(pySavitar INTERFACE)
