@@ -2,12 +2,14 @@ import os
 
 from pathlib import Path
 
-from conan.tools.cmake import CMakeToolchain, CMakeDeps, CMake, cmake_layout
-from conan.tools import files
+from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout
+from conan.tools.files import AutoPackager
+from conan.tools.build import check_min_cppstd
 from conan import ConanFile
-from conans import tools
 
-required_conan_version = ">=1.48.0"
+
+required_conan_version = ">=1.50.0"
+
 
 class PySavitarConan(ConanFile):
     name = "pysavitar"
@@ -19,8 +21,9 @@ class PySavitarConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     revision_mode = "scm"
     exports = "LICENSE*"
+    generators = "CMakeDeps", "VirtualBuildEnv", "VirtualRunEnv"
 
-    python_requires = "umbase/[>=0.1.6]@ultimaker/stable", "pyprojecttoolchain/[>=0.1.5]@ultimaker/stable", "sipbuildtool/[>=0.2.2]@ultimaker/stable"
+    python_requires = "umbase/[>=0.1.7]@ultimaker/stable", "pyprojecttoolchain/[>=0.1.5]@ultimaker/stable", "sipbuildtool/[>=0.2.2]@ultimaker/stable"
     python_requires_extend = "umbase.UMBaseConanfile"
 
     options = {
@@ -42,11 +45,15 @@ class PySavitarConan(ConanFile):
         "revision": "auto"
     }
 
+    def set_version(self):
+        if self.version is None:
+            self.version = self._umdefault_version()
+
     def requirements(self):
-        self.requires("umbase/0.1.6@ultimaker/stable")  # required for the CMake build modules
+        self.requires("umbase/0.1.7@ultimaker/stable")  # required for the CMake build modules
         self.requires("sipbuildtool/0.2.2@ultimaker/stable")  # required for the CMake build modules
         for req in self._um_data()["requirements"]:
-                self.requires(req)
+            self.requires(req)
 
     def config_options(self):
         if self.options.shared and self.settings.compiler == "Visual Studio":
@@ -58,12 +65,9 @@ class PySavitarConan(ConanFile):
 
     def validate(self):
         if self.settings.compiler.get_safe("cppstd"):
-            tools.check_min_cppstd(self, 17)
+            check_min_cppstd(self, 17)
 
     def generate(self):
-        deps = CMakeDeps(self)
-        deps.generate()
-
         pp = self.python_requires["pyprojecttoolchain"].module.PyProjectToolchain(self)
         pp.blocks["tool_sip_project"].values["sip_files_dir"] = Path("python").as_posix()
         pp.blocks["tool_sip_bindings"].values["name"] = "pySavitar"
@@ -99,7 +103,7 @@ class PySavitarConan(ConanFile):
         cmake.build()
 
     def package(self):
-        packager = files.AutoPackager(self)
+        packager = AutoPackager(self)
         packager.patterns.build.lib = ["*.so", "*.so.*", "*.a", "*.lib", "*.dylib", "*.pyd"]
         packager.run()
 
