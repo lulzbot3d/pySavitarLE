@@ -1,4 +1,4 @@
-"5.2.0-beta":
+"5.2.0-alpha":
   requirements:
     - "savitar/(latest)@ultimaker/testing"
     - "cpython/3.10.4"

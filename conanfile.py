@@ -50,7 +50,7 @@ class PySavitarConan(ConanFile):
             self.version = self._umdefault_version()
 
     def requirements(self):
-        self.requires("umbase/0.1.7@ultimaker/stable")  # required for the CMake build modules
+        self.requires("umbase/[>=0.1.7]@ultimaker/stable")  # required for the CMake build modules
         self.requires("sipbuildtool/0.2.2@ultimaker/stable")  # required for the CMake build modules
         for req in self._um_data()["requirements"]:
             self.requires(req)
