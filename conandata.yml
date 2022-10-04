@@ -2,9 +2,13 @@
   requirements:
     - "savitar/(latest)@ultimaker/testing"
     - "cpython/3.10.4"
-"5.2.0-beta.1":
+"5.2.0-beta.2":
   requirements:
     - "savitar/(latest)@ultimaker/stable"
+    - "cpython/3.10.4"
+"5.2.0-beta.1":
+  requirements:
+    - "savitar/5.2.0-beta.1"
     - "cpython/3.10.4"
 "5.2.0":
   requirements:
