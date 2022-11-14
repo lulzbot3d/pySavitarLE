@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 
 from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout
-from conan.tools.files import copy
+from conan.tools.files import copy, mkdir
 from conan.tools.build import check_min_cppstd
 from conan import ConanFile
 
@@ -70,7 +70,7 @@ class PySavitarConan(ConanFile):
     def generate(self):
         pp = self.python_requires["pyprojecttoolchain"].module.PyProjectToolchain(self)
         pp.blocks["tool_sip_project"].values["sip_files_dir"] = Path("python").as_posix()
-        pp.blocks["tool_sip_project"].values["build_folder"] = self.build_path.joinpath("pySavitar").as_posix()
+        mkdir(self, self.build_path)  # FIXME: bad, this should not be necessary
         pp.blocks["tool_sip_bindings"].values["name"] = "pySavitar"
         pp.blocks["tool_sip_metadata"].values["name"] = "pySavitar"
         pp.blocks.remove("extra_sources")
