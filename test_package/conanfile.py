@@ -2,10 +2,10 @@ import shutil
 from io import StringIO
 from pathlib import Path
 
-from conans import tools
 from conan import ConanFile
+from conan.tools.build import cross_building
 from conan.tools.env import VirtualRunEnv
-from conans.errors import ConanException
+from conan.errors import ConanException
 
 
 class PySavitarTestConan(ConanFile):
@@ -17,16 +17,16 @@ class PySavitarTestConan(ConanFile):
         venv.generate()
 
     def build(self):
-        if not tools.cross_building(self):
+        if not cross_building(self):
             shutil.copy(Path(self.source_folder).joinpath("test.py"), Path(self.build_folder).joinpath("test.py"))
 
     def imports(self):
-        if self.settings.os == "Windows" and not tools.cross_building(self):
+        if self.settings.os == "Windows" and not cross_building(self):
             self.copy("*.dll", dst=".", src="@bindirs")
             self.copy("*.pyd", dst=".", src="@libdirs")
 
     def test(self):
-        if not tools.cross_building(self):
+        if not cross_building(self):
             test_pysavitar = StringIO()
 
             try:
