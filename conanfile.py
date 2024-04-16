@@ -24,7 +24,7 @@ class PySavitarConan(ConanFile):
     generators = "CMakeDeps", "VirtualBuildEnv", "VirtualRunEnv"
 
     python_requires = "lulzbase/[>=0.1.7]@lulzbot/stable", "pyprojecttoolchain/[>=0.1.6]@lulzbot/stable", "sipbuildtool/[>=0.2.3]@lulzbot/stable"
-    python_requires_extend = "umbase.UMBaseConanfile"
+    python_requires_extend = "lulzbase.LulzBaseConanfile"
 
     options = {
         "shared": [True, False],
