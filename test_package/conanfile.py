@@ -9,7 +9,7 @@ from conan.errors import ConanException
 from conan.tools.files import copy
 
 
-class PySavitarTestConan(ConanFile):
+class PySavitarLETestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = "VirtualRunEnv"
     test_type = "explicit"
@@ -37,4 +37,4 @@ class PySavitarTestConan(ConanFile):
             test_buf = StringIO()
             self.run(f"python test.py", env = "conanrun", output = test_buf)
             if "True" not in test_buf.getvalue():
-                raise ConanException("pynest2d wasn't build correctly!")
+                raise ConanException("savitarle wasn't built correctly!")
