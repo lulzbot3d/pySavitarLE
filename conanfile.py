@@ -45,7 +45,7 @@ class PySavitarLEConan(ConanFile):
 
     def set_version(self):
         if not self.version:
-            self.version = "5.4.0-alpha"
+            self.version = "5.3.0"
 
     @property
     def _min_cppstd(self):
