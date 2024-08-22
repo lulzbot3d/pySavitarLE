@@ -37,4 +37,4 @@ class PySavitarLETestConan(ConanFile):
             test_buf = StringIO()
             self.run(f"python test.py", env = "conanrun", output = test_buf)
             if "True" not in test_buf.getvalue():
-                raise ConanException("savitarle wasn't built correctly!")
+                raise ConanException("pysavitarle wasn't built correctly!")
