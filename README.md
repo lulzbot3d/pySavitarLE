@@ -1,32 +1,22 @@
 # pySavitarLE
 
-<p align="center">
-    <a href="https://github.com/lulzbot3d/pySavitarLE/actions/workflows/conan-package.yml" alt="Conan Package">
-        <img src="https://github.com/lulzbot3d/pySavitarLE/actions/workflows/conan-package.yml/badge.svg" /></a>
-    <a href="https://github.com/lulzbot3d/pySavitarLE/issues" alt="Open Issues">
-        <img src="https://img.shields.io/github/issues/lulzbot3d/pySavitarLE" /></a>
-    <a href="https://github.com/lulzbot3d/pySavitarLE/pulls" alt="Pull Requests">
-        <img src="https://img.shields.io/github/issues-pr/lulzbot3d/pySavitarLE" /></a>
-    <a href="https://github.com/lulzbot3d/pySavitarLE" alt="Repo Size">
-        <img src="https://img.shields.io/github/repo-size/lulzbot3d/pySavitarLE?style=flat" /></a>
-    <a href="https://github.com/lulzbot3d/pySavitarLE/blob/master/LICENSE" alt="License">
-        <img src="https://img.shields.io/github/license/lulzbot3d/pySavitarLE?style=flat" /></a>
-</p>
+[![Conan Package](https://github.com/lulzbot3d/pySavitarLE/actions/workflows/conan-package.yml/badge.svg)](https://github.com/lulzbot3d/pySavitarLE/actions/workflows/conan-package.yml)
+[![Repo Size](https://img.shields.io/github/repo-size/lulzbot3d/pySavitarLE?style=flat)](https://github.com/lulzbot3d/pySavitarLE)
+[![License](https://img.shields.io/github/license/lulzbot3d/pySavitarLE?style=flat)](https://github.com/lulzbot3d/pySavitarLE/blob/main/LICENSE)
 
 This library contains the Python bindings for loading 3mf files using Savitar.
 
 ## License
 
-![License](https://img.shields.io/github/license/lulzbot3d/pySavitarLE?style=flat)  
-pySavitar is released under terms of the LGPLv3 License. Terms of the license can be found in the LICENSE file. Or at
-http://www.gnu.org/licenses/lgpl.html
+pySavitar is released under terms of the LGPLv3 License. Terms of the license can be found in the LICENSE file or [on the GNU website.](http://www.gnu.org/licenses/lgpl.html)
 
-> But in general it boils down to:
+> In general it boils down to:  
 > **You need to share the source of any pySavitarLE modifications if you make an application with pySavitarLE.**
 
 ## System Requirements
 
 ### Windows
+
 - Python 3.6 or higher
 - Ninja 1.10 or higher
 - VS2022 or higher
@@ -35,7 +25,8 @@ http://www.gnu.org/licenses/lgpl.html
 - sip 6.5.0 or higher
 - Conan 1.56.0
 
-### MacOs
+### MacOS
+
 - Python 3.6 or higher
 - Ninja 1.10 or higher
 - apply clang 11 or higher
@@ -45,6 +36,7 @@ http://www.gnu.org/licenses/lgpl.html
 - Conan 1.56.0
 
 ### Linux
+
 - Python 3.6 or higher
 - Ninja 1.10 or higher
 - gcc 12 or higher
@@ -74,11 +66,13 @@ conan profile new default --detect --force
 Community developers would have to remove the Conan cura-le repository because it requires credentials,
 
 LulzBot developers need to request an account for our JFrog Artifactory server from IT
+
 ```bash
 conan remote remove cura-le
 ```
 
 ### 2. Clone pySavitarLE
+
 ```bash
 git clone https://github.com/lulzbot3d/pySavitarLE.git
 cd pySavitarLE
@@ -87,6 +81,7 @@ cd pySavitarLE
 ### 3. Install & Build pySavitar (Release OR Debug)
 
 #### Release
+
 ```bash
 conan install . --build=missing --update
 # optional for a specific version: conan install . pysavitarle/<version>@<user>/<channel> --build=missing --update
@@ -120,7 +115,6 @@ Note: Make sure that the used `<version>` is present in the conandata.yml in the
 You can also specify the override at the commandline, to use the newly created package, when you execute the `conan install`
 command in the root of the consuming project, with:
 
-
 ```shell
 conan install . -build=missing --update --require-override=pysavitarle/<version>@<username>/<channel>
 ```
@@ -134,7 +128,7 @@ This means you can test this in a consuming project without creating a new packa
     conan editable add . pysavitarle/<version>@<username>/<channel>
 ```
 
-Then in your downsteam projects (Cura) root directory override the package with your editable mode package.  
+Then in your downsteam projects (CuraLE) root directory override the package with your editable mode package.
 
 ```shell
 conan install . -build=missing --update --require-override=pysavitarle/<version>@<username>/<channel>
