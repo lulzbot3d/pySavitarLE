@@ -1,8 +1,9 @@
-cmake_policy(SET CMP0091 NEW)
-project(pysavitarle)
 cmake_minimum_required(VERSION 3.20)
+project(pysavitarle)
 
-find_package(cpython REQUIRED)
+# Set LC_LIBRARY_PATH variable to ensure CMake can actually use the CPython library
+set(ENV{LD_LIBRARY_PATH} "${CMAKE_LIBRARY_PATH}:${LD_LIBRARY_PATH}")
+find_package(Python3 REQUIRED)
 find_package(savitarle REQUIRED)
 
 find_package(standardprojectsettings REQUIRED)

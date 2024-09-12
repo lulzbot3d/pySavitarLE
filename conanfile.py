@@ -5,7 +5,7 @@ from os import path
 
 from conan import ConanFile
 from conan.errors import ConanInvalidConfiguration
-from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout
+from conan.tools.cmake import CMake, CMakeDeps, CMakeToolchain, cmake_layout
 from conan.tools.env import VirtualBuildEnv
 from conan.tools.files import copy, mkdir
 from conan.tools.build import check_min_cppstd
@@ -67,7 +67,7 @@ class PySavitarLEConan(ConanFile):
 
     def requirements(self):
         self.requires("savitarle/5.3.0")
-        self.requires("cpython/3.10.4")
+        self.requires("cpython/3.12.2")
 
     def validate(self):
         if self.settings.compiler.cppstd:
@@ -104,14 +104,6 @@ class PySavitarLEConan(ConanFile):
         tc = CMakeToolchain(self)
         if is_msvc(self):
             tc.variables["USE_MSVC_RUNTIME_LIBRARY_DLL"] = not is_msvc_static_runtime(self)
-        tc.cache_variables["CMAKE_POLICY_DEFAULT_CMP0077"] = "NEW"
-        tc.variables["Python_EXECUTABLE"] = self.deps_user_info["cpython"].python.replace("\\", "/")
-        tc.variables["Python_USE_STATIC_LIBS"] = not self.options["cpython"].shared
-        tc.variables["Python_ROOT_DIR"] = self.deps_cpp_info["cpython"].rootpath.replace("\\", "/")
-        tc.variables["Python_FIND_FRAMEWORK"] = "NEVER"
-        tc.variables["Python_FIND_REGISTRY"] = "NEVER"
-        tc.variables["Python_FIND_IMPLEMENTATIONS"] = "CPython"
-        tc.variables["Python_FIND_STRATEGY"] = "LOCATION"
         tc.variables["Python_SITEARCH"] = "site-packages"
         tc.generate()
 
