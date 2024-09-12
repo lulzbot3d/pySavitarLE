@@ -1,8 +1,9 @@
 # pySavitarLE
 
-[![Conan Package](https://github.com/lulzbot3d/pySavitarLE/actions/workflows/conan-package.yml/badge.svg)](https://github.com/lulzbot3d/pySavitarLE/actions/workflows/conan-package.yml)
-[![Repo Size](https://img.shields.io/github/repo-size/lulzbot3d/pySavitarLE?style=flat)](https://github.com/lulzbot3d/pySavitarLE)
-[![License](https://img.shields.io/github/license/lulzbot3d/pySavitarLE?style=flat)](https://github.com/lulzbot3d/pySavitarLE/blob/main/LICENSE)
+[![Badge Conan]][Conan]
+
+[![Badge Size]][Size]
+[![Badge License]][License]
 
 This library contains the Python bindings for loading 3mf files using Savitar.
 
@@ -133,3 +134,13 @@ Then in your downsteam projects (CuraLE) root directory override the package wit
 ```shell
 conan install . -build=missing --update --require-override=pysavitarle/<version>@<username>/<channel>
 ```
+
+<!--------------------------------------------->
+
+[Conan]: https://github.com/lulzbot3d/pySavitarLE/actions/workflows/conan-package.yml
+[Size]: https://github.com/lulzbot3d/pySavitarLE
+[License]: LICENSE
+
+[Badge Conan]: https://img.shields.io/github/actions/workflow/status/lulzbot3d/pySavitarLE/conan-package.yml?style=for-the-badge&color=C1D82F&labelColor=788814&logoColor=white&logo=conan
+[Badge Size]: https://img.shields.io/github/repo-size/lulzbot3d/pySavitarLE?style=for-the-badge&color=CCCCCC&labelColor=666666&logoColor=white&logo=googleanalytics
+[Badge License]: https://img.shields.io/github/license/lulzbot3d/pySavitarLE?style=for-the-badge&color=A32D2A&labelColor=511615&logoColor=white&logo=gnu
