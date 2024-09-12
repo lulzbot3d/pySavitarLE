@@ -141,6 +141,6 @@ conan install . -build=missing --update --require-override=pysavitarle/<version>
 [Size]: https://github.com/lulzbot3d/pySavitarLE
 [License]: LICENSE
 
-[Badge Conan]: https://img.shields.io/github/actions/workflow/status/lulzbot3d/pySavitarLE/conan-package.yml?style=for-the-badge&color=C1D82F&labelColor=788814&logoColor=white&logo=conan
-[Badge Size]: https://img.shields.io/github/repo-size/lulzbot3d/pySavitarLE?style=for-the-badge&color=CCCCCC&labelColor=666666&logoColor=white&logo=googleanalytics
-[Badge License]: https://img.shields.io/github/license/lulzbot3d/pySavitarLE?style=for-the-badge&color=A32D2A&labelColor=511615&logoColor=white&logo=gnu
+[Badge Conan]: https://img.shields.io/github/actions/workflow/status/lulzbot3d/pySavitarLE/conan-package.yml?style=for-the-badge&color=C1D82F&labelColor=788814&logoColor=white&logo=Conan&label=Conan%20Package
+[Badge Size]: https://img.shields.io/github/repo-size/lulzbot3d/pySavitarLE?style=for-the-badge&color=CCCCCC&labelColor=666666&logoColor=white&logo=GoogleAnalytics
+[Badge License]: https://img.shields.io/github/license/lulzbot3d/pySavitarLE?style=for-the-badge&color=A32D2A&labelColor=511615&logoColor=white&logo=GNU
