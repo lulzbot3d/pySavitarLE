@@ -106,7 +106,6 @@ class PySavitarConan(ConanFile):
         tc = CMakeToolchain(self)
         if is_msvc(self):
             tc.variables["USE_MSVC_RUNTIME_LIBRARY_DLL"] = not is_msvc_static_runtime(self)
-        tc.cache_variables["CMAKE_POLICY_DEFAULT_CMP0148"] = "OLD"
         tc.generate()
 
         vb = VirtualBuildEnv(self)
