@@ -55,11 +55,11 @@ class PySavitarConan(ConanFile):
     @property
     def _compilers_minimum_version(self):
         return {
-            "gcc": "9",
-            "clang": "9",
-            "apple-clang": "9",
+            "gcc": "11",
+            "clang": "14",
+            "apple-clang": "13",
             "msvc": "192",
-            "visual_studio": "14",
+            "visual_studio": "17",
         }
 
     def export_sources(self):
