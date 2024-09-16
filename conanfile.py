@@ -69,6 +69,7 @@ class PySavitarConan(ConanFile):
     def requirements(self):
         for req in self.conan_data["requirements"]:
             self.requires(req)
+        self.requires("cpython/3.12.2")
 
     def validate(self):
         if self.settings.compiler.cppstd:
@@ -84,7 +85,6 @@ class PySavitarConan(ConanFile):
     def build_requirements(self):
         self.test_requires("standardprojectsettings/[>=0.2.0]@ultimaker/cura_11622")  # FIXME: use stable after merge
         self.test_requires("sipbuildtool/[>=0.3.0]@ultimaker/cura_11622")  # FIXME: use stable after merge
-        self.test_requires("cpython/3.12.2")
 
     def config_options(self):
         if self.settings.os == "Windows":
