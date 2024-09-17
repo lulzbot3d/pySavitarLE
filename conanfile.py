@@ -104,15 +104,15 @@ class PySavitarLEConan(ConanFile):
         tc = CMakeToolchain(self)
         if is_msvc(self):
             tc.variables["USE_MSVC_RUNTIME_LIBRARY_DLL"] = not is_msvc_static_runtime(self)
-            tc.cache_variables["CMAKE_POLICY_DEFAULT_CMP0077"] = "NEW"
-            tc.variables["Python_EXECUTABLE"] = self.deps_user_info["cpython"].python.replace("\\", "/")
-            tc.variables["Python_USE_STATIC_LIBS"] = not self.options["cpython"].shared
-            tc.variables["Python_ROOT_DIR"] = self.deps_cpp_info["cpython"].rootpath.replace("\\", "/")
-            tc.variables["Python_FIND_FRAMEWORK"] = "NEVER"
-            tc.variables["Python_FIND_REGISTRY"] = "NEVER"
-            tc.variables["Python_FIND_IMPLEMENTATIONS"] = "CPython"
-            tc.variables["Python_FIND_STRATEGY"] = "LOCATION"
-            tc.variables["Python_SITEARCH"] = "site-packages"
+        tc.cache_variables["CMAKE_POLICY_DEFAULT_CMP0077"] = "NEW"
+        tc.variables["Python_EXECUTABLE"] = self.deps_user_info["cpython"].python.replace("\\", "/")
+        tc.variables["Python_USE_STATIC_LIBS"] = not self.options["cpython"].shared
+        tc.variables["Python_ROOT_DIR"] = self.deps_cpp_info["cpython"].rootpath.replace("\\", "/")
+        tc.variables["Python_FIND_FRAMEWORK"] = "NEVER"
+        tc.variables["Python_FIND_REGISTRY"] = "NEVER"
+        tc.variables["Python_FIND_IMPLEMENTATIONS"] = "CPython"
+        tc.variables["Python_FIND_STRATEGY"] = "LOCATION"
+        tc.variables["Python_SITEARCH"] = "site-packages"
         tc.generate()
 
         vb = VirtualBuildEnv(self)
