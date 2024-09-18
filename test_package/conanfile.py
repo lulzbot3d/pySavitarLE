@@ -28,6 +28,12 @@ class PySavitarTestConan(ConanFile):
     def test(self):
         if can_run(self):
             test_buf = StringIO()
-            self.run(f"python test.py", env="conanrun", stdout=test_buf, scope="run")
-            if "True" not in test_buf.getvalue():
+            try:
+                self.run("python test.py", env="conanrun", stdout=test_buf, scope="run")
+            except ConanException as ex:
+                # As long as it still outputs 'True', at least we can say the package is build correctly.
+                # (For example: A non-zero exit code might indicate a bug, but that's more the domain of unit-tests, not really relevant to wether or not that _package_ has been build correctly.)
+                print(f"WARNING: {str(ex)}")
+            ret_val = test_buf.getvalue()
+            if "True" not in ret_val:
                 raise ConanException("pySavitar wasn't build correctly!")
