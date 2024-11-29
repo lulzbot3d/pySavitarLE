@@ -69,7 +69,7 @@ class PySavitarConan(ConanFile):
     def requirements(self):
         for req in self.conan_data["requirements"]:
             self.requires(req)
-        self.requires("cpython/3.12.2")
+        self.requires("cpython/3.12.7")
 
     def validate(self):
         if self.settings.compiler.cppstd:
