@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 project(pysavitarle)
 
 find_package(cpython REQUIRED)
-find_package(savitarle REQUIRED)
+find_package(savitar REQUIRED)
 
 find_package(standardprojectsettings REQUIRED)
 find_package(sipbuildtool REQUIRED)
@@ -15,7 +15,7 @@ target_include_directories(pySavitar
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/>
         )
-target_link_libraries(pySavitar INTERFACE savitarle::savitarle cpython::cpython)
+target_link_libraries(pySavitar INTERFACE savitar::savitar cpython::cpython)
 add_sip_module(pySavitar)
 install_sip_module(pySavitar)
 
