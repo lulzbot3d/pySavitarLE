@@ -25,7 +25,7 @@ class PySavitarConan(ConanFile):
     exports = "LICENSE*"
     generators = "CMakeDeps"
 
-    python_requires = "pyprojecttoolchain/[>=0.2.0]@ultimaker/cura_11622", "sipbuildtool/[>=0.3.0]@ultimaker/cura_11622"  # FIXME: use stable after merge
+    python_requires = "pyprojecttoolchain/[>=0.2.0]@ultimaker/stable", "sipbuildtool/[>=0.3.0]@ultimaker/stable"
 
     options = {
         "shared": [True, False],
@@ -83,8 +83,8 @@ class PySavitarConan(ConanFile):
                 )
 
     def build_requirements(self):
-        self.test_requires("standardprojectsettings/[>=0.2.0]@ultimaker/cura_11622")  # FIXME: use stable after merge
-        self.test_requires("sipbuildtool/[>=0.3.0]@ultimaker/cura_11622")  # FIXME: use stable after merge
+        self.test_requires("standardprojectsettings/[>=0.2.0]@ultimaker/stable")
+        self.test_requires("sipbuildtool/[>=0.3.0]@ultimaker/stable")
 
     def config_options(self):
         if self.settings.os == "Windows":
