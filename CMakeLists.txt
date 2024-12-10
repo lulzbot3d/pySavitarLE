@@ -1,8 +1,8 @@
-cmake_policy(SET CMP0091 NEW)
 cmake_minimum_required(VERSION 3.20)
 project(pysavitarle)
+cmake_policy(SET CMP0091 NEW)
 
-find_package(cpython REQUIRED)
+find_package(Python REQUIRED)
 find_package(savitar REQUIRED)
 
 find_package(standardprojectsettings REQUIRED)
