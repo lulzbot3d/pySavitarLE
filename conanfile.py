@@ -15,7 +15,7 @@ required_conan_version = ">=2.7.0"
 
 
 class PySavitarLEConan(ConanFile):
-    name = "pysavitarle"
+    name = "pysavitar"
     license = "LGPL-3.0"
     author = "Ultimaker B.V., FAME3D LLC."
     url = "https://github.com/lulzbot3d/pySavitarLE"

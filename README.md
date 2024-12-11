@@ -12,7 +12,7 @@ This library contains the Python bindings for loading 3mf files using Savitar.
 pySavitar is released under terms of the LGPLv3 License. Terms of the license can be found in the LICENSE file or [on the GNU website.](http://www.gnu.org/licenses/lgpl.html)
 
 > In general it boils down to:  
-> **You need to share the source of any pySavitarLE modifications if you make an application with pySavitarLE.**
+> **You need to share the source of any pySavitar modifications if you make an application with pySavitar.**
 
 ## System Requirements
 
@@ -85,7 +85,7 @@ cd pySavitarLE
 
 ```bash
 conan install . --build=missing --update
-# optional for a specific version: conan install . pysavitarle/<version>@<user>/<channel> --build=missing --update
+# optional for a specific version: conan install . pysavitar/<version>@<user>/<channel> --build=missing --update
 conan build .
 # or
 sip-install
@@ -100,12 +100,12 @@ conan build .
 sip-install
 ```
 
-## Creating a new pySavitarLE Conan package
+## Creating a new pySavitar Conan package
 
-To create a new pySavitarLE Conan package such that it can be used in CuraLE and UraniumLE, run the following command:
+To create a new pySavitar Conan package such that it can be used in CuraLE and UraniumLE, run the following command:
 
 ```shell
-conan create . pysavitarle/<version>@<username>/<channel> --build=missing --update
+conan create . pysavitar/<version>@<username>/<channel> --build=missing --update
 ```
 
 This package will be stored in the local Conan cache (`~/.conan/data` or `C:\Users\username\.conan\data` ) and can be used in downstream
@@ -117,22 +117,22 @@ You can also specify the override at the commandline, to use the newly created p
 command in the root of the consuming project, with:
 
 ```shell
-conan install . -build=missing --update --require-override=pysavitarle/<version>@<username>/<channel>
+conan install . -build=missing --update --require-override=pysavitar/<version>@<username>/<channel>
 ```
 
-## Developing pySavitarLE In Editable Mode
+## Developing pySavitar In Editable Mode
 
 You can use your local development repository downsteam by adding it as an editable mode package.
 This means you can test this in a consuming project without creating a new package for this project every time.
 
 ```bash
-    conan editable add . pysavitarle/<version>@<username>/<channel>
+    conan editable add . pysavitar/<version>@<username>/<channel>
 ```
 
 Then in your downsteam projects (CuraLE) root directory override the package with your editable mode package.
 
 ```shell
-conan install . -build=missing --update --require-override=pysavitarle/<version>@<username>/<channel>
+conan install . -build=missing --update --require-override=pysavitar/<version>@<username>/<channel>
 ```
 
 <!--------------------------------------------->
