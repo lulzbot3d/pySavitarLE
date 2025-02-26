@@ -25,7 +25,7 @@ class PySavitarLEConan(ConanFile):
     exports = "LICENSE*"
     generators = "CMakeDeps"
 
-    python_requires = "pyprojecttoolchain/[>=0.2.0]@lulzbot/stable", "sipbuildtool/[>=0.3.0]@lulzbot/stable"
+    python_requires = "pyprojecttoolchain/[>=0.2.0]", "sipbuildtool/[>=0.3.0]"
 
     options = {
         "shared": [True, False],
@@ -83,8 +83,8 @@ class PySavitarLEConan(ConanFile):
                 )
 
     def build_requirements(self):
-        self.test_requires("standardprojectsettings/[>=0.2.0]@lulzbot/stable")
-        self.test_requires("sipbuildtool/[>=0.3.0]@lulzbot/stable")
+        self.test_requires("standardprojectsettings/[>=0.2.0]")
+        self.test_requires("sipbuildtool/[>=0.3.0]")
 
     def config_options(self):
         if self.settings.os == "Windows":
