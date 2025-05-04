@@ -33,5 +33,8 @@ public:
     
     std::string getType();
     void setType(std::string type);
+
+    std::string getComponentPath() const;
+    void parseComponentData(const std::string& xml_string);
 };
 
