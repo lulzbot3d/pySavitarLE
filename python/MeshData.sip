@@ -17,4 +17,8 @@ public:
     void setVerticesFromBytes(const bytearray& data);
 
     void setFacesFromBytes(const bytearray& data);
+
+    bytearray getUVCoordinatesPerVertexAsBytes(const Scene* scene) const;
+
+    std::string getTexturePath(const Scene* scene) const;
 };
