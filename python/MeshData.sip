@@ -20,5 +20,7 @@ public:
 
     bytearray getUVCoordinatesPerVertexAsBytes(const Scene* scene) const;
 
+    void setUVCoordinatesPerVertexAsBytes(const bytearray& data, Scene* scene);
+
     std::string getTexturePath(const Scene* scene) const;
 };
