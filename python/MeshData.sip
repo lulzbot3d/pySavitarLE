@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Ultimaker B.V.
+    // Copyright (c) 2022 Ultimaker B.V.
 // pySavitar is released under the terms of the LGPLv3 or higher.
 
 class MeshData
@@ -20,7 +20,7 @@ public:
 
     bytearray getUVCoordinatesPerVertexAsBytes(const Scene* scene) const;
 
-    void setUVCoordinatesPerVertexAsBytes(const bytearray& data, Scene* scene);
+    void setUVCoordinatesPerVertexAsBytes(const bytearray& data, const std::string& texture_path, Scene* scene);
 
     std::string getTexturePath(const Scene* scene) const;
 };
