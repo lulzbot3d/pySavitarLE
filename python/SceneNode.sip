@@ -20,8 +20,8 @@ public:
     std::string getName();
     void setName(std::string name);
 
-    std::string getId();
-    void setId(std::string id);
+    int getId();
+    void setId(const int id);
 
     const std::map<std::string, MetadataEntry>& getSettings() const;
     void setSetting(const std::string& key, MetadataEntry& entry);
