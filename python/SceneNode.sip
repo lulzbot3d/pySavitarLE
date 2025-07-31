@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Ultimaker B.V.
+// Copyright (c) 2025 Ultimaker B.V.
 // pySavitar is released under the terms of the LGPLv3 or higher.
 
 class SceneNode
@@ -20,8 +20,8 @@ public:
     std::string getName();
     void setName(std::string name);
 
-    std::string getId();
-    void setId(std::string id);
+    int getId();
+    void setId(const int id);
 
     const std::map<std::string, MetadataEntry>& getSettings() const;
     void setSetting(const std::string& key, MetadataEntry& entry);
